@@ -55,32 +55,3 @@ function playRound(humanChoice, computerChoice) {
     if (humanWin) return 'human';
     else return 'computer';
 }
-
-function playGame() {
-    let computerChoice, humanChoice, winner;
-
-    let humanScore = 0;
-    let computerScore = 0;
-    let roundsPlayed = 0;
-
-    while(roundsPlayed < 5) {
-        roundsPlayed++;
-
-        computerChoice = getComputerChoice();
-        humanChoice = getHumanChoice();
-
-        console.log(`The computers choice: ${computerChoice}`);
-        console.log(`The humans choice: ${humanChoice}`);
-
-        winner = playRound(humanChoice, computerChoice);
-        if (winner === 'human') {
-            humanScore++;
-        } else if (winner === 'computer') {
-            computerScore++;
-        }
-
-        console.log(`Scoreline Round ${roundsPlayed}-> Human: ${humanScore}, Computer: ${computerScore}`);
-    }
-}
-
-playGame()
