@@ -55,3 +55,9 @@ function playRound(humanChoice, computerChoice) {
     if (humanWin) return 'human';
     else return 'computer';
 }
+
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorButton = document.querySelector('#scissor');
+
+console.log(rockButton);
