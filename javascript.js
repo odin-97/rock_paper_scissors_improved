@@ -8,13 +8,9 @@ function getComputerChoice() {
     return 'invalid';
 }
 
-function getHumanChoice() {
-    const humanChoice = prompt('Pick between rock, paper or scissor');
-    return humanChoice;
-}
-
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice) {
     humanChoice = humanChoice.toUpperCase(); // makes human input case-insensitive
+    const computerChoice = getComputerChoice();
     let humanWin = false;
 
     if (humanChoice === computerChoice) {
@@ -42,7 +38,7 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 
-    else if (humanChoice = 'ROCK') {
+    else if (humanChoice === 'ROCK') {
         if (computerChoice === 'PAPER') {
             console.log('You lose! Paper beats Rock.');
             humanWin = false;
@@ -60,4 +56,9 @@ const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
 const scissorButton = document.querySelector('#scissor');
 
-console.log(rockButton);
+
+
+
+rockButton.addEventListener('click', () => {playRound('rock')});
+paperButton.addEventListener('click', () => {playRound('paper')});
+scissorButton.addEventListener('click', () => {playRound('scissor')});
