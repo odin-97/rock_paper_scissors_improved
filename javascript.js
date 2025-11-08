@@ -2,6 +2,8 @@ const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
 const scissorButton = document.querySelector('#scissor');
 
+const playButton = document.querySelector('.hidden');
+
 let userText = document.querySelector('#user');
 let computerText = document.querySelector('#computer');
 let winnerText = document.querySelector('#winner');
@@ -83,9 +85,12 @@ function playRound(humanChoice) {
             promptText = `We have a Draw! Final score is ${userScore}:${computerScore}`;
         }
 
+        playButton.classList.toggle('hidden');
+
         setTimeout(() => {
             alert(promptText);
         }, 0);  
+        
     }
 }
 
@@ -103,4 +108,17 @@ scissorButton.addEventListener('click', () => {
     userText.textContent = 'Scissor';
     playRound('scissor');
 });
+
+playButton.addEventListener('click', () => {
+    userText.textContent = '';
+    computerText.textContent = '';
+    winnerText.textContent = '';
+
+    roundsPlayed = 0;
+    userScore = 0;
+    computerScore = 0;
+    userScoreLine.textContent = '0';
+    computerScoreLine.textContent = '0';
+    playButton.classList.toggle('hidden');
+})
 
